@@ -1,0 +1,26 @@
+<div>
+  <p>Haz click para ver el formulario</p>
+  <button (click)="onToggle()">VER</button>
+</div>
+
+<div *ngIf="toggle">
+  <form [formGroup]="form">
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      formControlName="name"/>
+    <label for="name">Surname:</label>
+    <input
+      type="text"
+      name="surname"
+      id="surname"
+      formControlName="surname"/>
+  </form>
+  <button (click)="onSubmit()">Submit</button>
+
+  <ul>
+    <li *ngFor="let user of users">{{user}}</li>
+  </ul>
+</div>
