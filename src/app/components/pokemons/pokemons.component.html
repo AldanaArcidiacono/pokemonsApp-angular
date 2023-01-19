@@ -1,6 +1,9 @@
 <div>
-  <ul *ngIf="pokemons" class="flex flex-wrap m-3 gap-5">
-    <li *ngFor="let item of pokemons" class="flex flex-col items-center border-solid border-2 border-fuchsia-900 rounded-2xl p-5">
+  <ul *ngIf="pokemons" class="flex flex-wrap m-4 gap-5">
+    <li
+      *ngFor="let item of pokemons"
+      class="flex flex-col items-center border-solid border-2 border-red-300 rounded-2xl p-5"
+    >
       <p class="font-Poppins text-xl p-5">{{ item.name }}</p>
       <img
         src="{{ item.sprites.other?.dream_world?.front_default }}"
