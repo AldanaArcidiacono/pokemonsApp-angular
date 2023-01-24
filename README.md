@@ -9,3 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## API
 
 https://pokeapi.co/api/v2/pokemon?limit=10&offset=0
+
+## Site deploy
+
+https://pokemons-app-angular.vercel.app/

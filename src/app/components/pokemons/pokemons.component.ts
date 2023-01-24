@@ -21,7 +21,7 @@ export class PokemonsComponent {
         this.pokeService
           .getAllPokemons(data.results[i].url)
           .subscribe((data) => {
-            this.pokemons.push(data as Pokemon | any);
+            this.pokemons.push(data as Pokemon);
           });
       }
     });
