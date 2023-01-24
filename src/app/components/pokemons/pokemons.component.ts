@@ -22,8 +22,11 @@ export class PokemonsComponent {
           .getAllPokemons(data.results[i].url)
           .subscribe((data) => {
             this.pokemons.push(data as Pokemon);
+            this.pokemons.sort((a,b) => a.id - b.id)
           });
       }
     });
   }
+
+
 }
