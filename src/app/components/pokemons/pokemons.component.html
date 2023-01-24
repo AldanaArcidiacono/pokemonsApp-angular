@@ -2,14 +2,26 @@
   <ul *ngIf="pokemons" class="flex flex-wrap m-4 gap-5">
     <li
       *ngFor="let item of pokemons"
-      class="flex flex-col items-center border-solid border-2 border-red-300 rounded-2xl p-5"
+      class="flex flex-col items-center border-solid border-2 border-red-300 rounded-2xl w-48 p-5"
     >
       <p class="font-Poppins text-xl p-5">{{ item.name }}</p>
-        <img
-          src="{{ item.sprites.other?.dream_world?.front_default }}"
-          alt="{{ item.name }}"
-          width="150"
-        />
+      <img
+        src="{{ item.sprites.other?.dream_world?.front_default }}"
+        alt="{{ item.name }}"
+        width="150"
+      />
     </li>
   </ul>
+  <div class="flex justify-center m-4 gap-5">
+    <button
+      class="border-solid border-2 border-red-300 hover:bg-red-300 m-1 pl-4 pr-4"
+    >
+      Previous
+    </button>
+    <button
+      class="border-solid border-2 border-red-300 hover:bg-red-300 m-1 pl-4 pr-4"
+    >
+      Next
+    </button>
+  </div>
 </div>
