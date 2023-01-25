@@ -47,4 +47,14 @@ export class ApiService {
     this.getPokemons();
     return this.http.get<Pokemon>(this.apiUrl);
   }
+
+  getPrevUrlPokemons(): Observable<Pokemon> {
+    for (let i = 0; i < 20; i++) {
+      this.pageCounter--;
+    }
+
+    this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
+    this.getPokemons();
+    return this.http.get<Pokemon>(this.apiUrl);
+  }
 }

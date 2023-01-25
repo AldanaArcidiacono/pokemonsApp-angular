@@ -34,4 +34,10 @@ export class PokemonsComponent {
     this.pokeService.getNextUrlPokemons();
     this.ngOnInit();
   }
+
+  getPrevPokemons(): void {
+    this.pokemons = [];
+    this.pokeService.getPrevUrlPokemons();
+    this.ngOnInit();
+  }
 }

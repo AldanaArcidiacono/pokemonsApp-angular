@@ -14,12 +14,13 @@
   </ul>
   <div class="flex justify-center m-4 gap-5">
     <button
+      (click)="getPrevPokemons()"
       class="border-solid border-2 border-red-300 hover:bg-red-300 m-1 pl-4 pr-4"
     >
       Previous
     </button>
     <button
-    (click)="getNextPokemons()"
+      (click)="getNextPokemons()"
       class="border-solid border-2 border-red-300 hover:bg-red-300 m-1 pl-4 pr-4"
     >
       Next
