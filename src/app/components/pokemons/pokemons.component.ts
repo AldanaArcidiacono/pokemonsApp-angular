@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { concatMap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { Pokemon } from 'src/app/types/pokemon';
 import { PokemonList } from 'src/app/types/pokemon-list';
@@ -22,11 +23,21 @@ export class PokemonsComponent {
           .getAllPokemons(data.results[i].url)
           .subscribe((data) => {
             this.pokemons.push(data as Pokemon);
-            this.pokemons.sort((a,b) => a.id - b.id)
+            this.pokemons.sort((a, b) => a.id - b.id);
           });
       }
     });
   }
 
+  getNextPokemons(): void {
+    this.pokemons = [];
+    this.pokeService.getNextUrlPokemons();
+    this.ngOnInit();
+  }
 
+  getPrevPokemons(): void {
+    this.pokemons = [];
+    this.pokeService.getPrevUrlPokemons();
+    this.ngOnInit();
+  }
 }
