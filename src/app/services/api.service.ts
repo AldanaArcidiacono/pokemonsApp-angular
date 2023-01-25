@@ -10,7 +10,8 @@ import { PokemonList } from '../types/pokemon-list';
 export class ApiService {
   apiUrl: string;
   pageCounter: number = 0;
-  pokesCounter: number = 10;
+  pokesCounter: number = 14;
+  isPrevPage: boolean = false;
 
   constructor(public http: HttpClient) {
     this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
@@ -38,6 +39,7 @@ export class ApiService {
     return this.http.get<Pokemon>(pokeUrl, httpOptions);
   }
 
+  // Las funciones deben devolver siempre el MISMO TIPO xdd
   getNextUrlPokemons(): Observable<Pokemon> {
     for (let i = 0; i < 20; i++) {
       this.pageCounter++;
@@ -49,14 +51,11 @@ export class ApiService {
   }
 
   getPrevUrlPokemons(): Observable<Pokemon> {
-    if (this.pageCounter === 0) {
-      this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
-    }
-
     if (this.pageCounter > 0) {
       for (let i = 0; i < 20; i++) {
         this.pageCounter--;
       }
+
       this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
       this.getPokemons();
     }

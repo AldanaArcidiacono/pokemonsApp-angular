@@ -17,13 +17,13 @@ import { PokemonsComponent } from './components/pokemons/pokemons.component';
     HeaderComponent,
     FormPageComponent,
     HomeComponent,
-    PokemonsComponent
+    PokemonsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
