@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { concatMap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { Pokemon } from 'src/app/types/pokemon';
 import { PokemonList } from 'src/app/types/pokemon-list';

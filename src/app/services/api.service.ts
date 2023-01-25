@@ -49,12 +49,18 @@ export class ApiService {
   }
 
   getPrevUrlPokemons(): Observable<Pokemon> {
-    for (let i = 0; i < 20; i++) {
-      this.pageCounter--;
+    if (this.pageCounter === 0) {
+      this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
     }
 
-    this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
-    this.getPokemons();
+    if (this.pageCounter > 0) {
+      for (let i = 0; i < 20; i++) {
+        this.pageCounter--;
+      }
+      this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
+      this.getPokemons();
+    }
+
     return this.http.get<Pokemon>(this.apiUrl);
   }
 }
