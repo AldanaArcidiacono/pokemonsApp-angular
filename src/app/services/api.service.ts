@@ -8,10 +8,12 @@ import { PokemonList } from '../types/pokemon-list';
   providedIn: 'root',
 })
 export class ApiService {
-  apiUrl!: string;
+  apiUrl: string;
+  pageCounter: number = 0;
+  pokesCounter: number = 10;
 
   constructor(public http: HttpClient) {
-    this.apiUrl = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0';
+    this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
   }
 
   getPokemons(): Observable<PokemonList> {
@@ -34,5 +36,15 @@ export class ApiService {
     };
 
     return this.http.get<Pokemon>(pokeUrl, httpOptions);
+  }
+
+  getNextUrlPokemons(): Observable<Pokemon> {
+    for (let i = 0; i < 20; i++) {
+      this.pageCounter++;
+    }
+
+    this.apiUrl = `https://pokeapi.co/api/v2/pokemon?offset=${this.pageCounter}&limit=${this.pokesCounter}`;
+    this.getPokemons();
+    return this.http.get<Pokemon>(this.apiUrl);
   }
 }
