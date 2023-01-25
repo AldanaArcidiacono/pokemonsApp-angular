@@ -7,20 +7,20 @@ import { PokemonsComponent } from './components/pokemons/pokemons.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
-    path:'formPage',
-    component: FormPageComponent
+    path: 'formPage',
+    component: FormPageComponent,
   },
   {
-    path:'pokemons',
-    component: PokemonsComponent
-  }
+    path: 'pokemons',
+    component: PokemonsComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

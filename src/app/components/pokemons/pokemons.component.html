@@ -2,28 +2,24 @@
   <ul *ngIf="pokemons" class="flex flex-wrap m-4 gap-5">
     <li
       *ngFor="let item of pokemons"
-      class="flex flex-col items-center border-solid border-2 border-red-300 rounded-2xl w-48 h-72 p-4"
-    >
+      class="flex flex-col items-center border-solid border-2 border-red-300 rounded-2xl w-48 h-72 p-4">
       <p class="font-Poppins text-xl pb-5">{{ item.name }}</p>
       <img
-      class="max-h-48"
+        class="max-h-48"
         src="{{ item.sprites.other?.dream_world?.front_default }}"
         alt="{{ item.name }}"
-        width="150"
-      />
+        width="150" />
     </li>
   </ul>
   <div class="flex justify-center m-4 gap-5">
     <button
       (click)="getPrevPokemons()"
-      class="border-solid border-2 border-red-300 hover:bg-red-300 m-1 pl-4 pr-4"
-    >
+      class="border-solid border-2 border-red-300 hover:bg-red-300 m-1 pl-4 pr-4">
       Previous
     </button>
     <button
       (click)="getNextPokemons()"
-      class="border-solid border-2 border-red-300 hover:bg-red-300 m-1 pl-4 pr-4"
-    >
+      class="border-solid border-2 border-red-300 hover:bg-red-300 m-1 pl-4 pr-4">
       Next
     </button>
   </div>

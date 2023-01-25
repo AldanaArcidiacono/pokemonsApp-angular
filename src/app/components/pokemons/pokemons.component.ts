@@ -13,17 +13,16 @@ export class PokemonsComponent {
 
   constructor(public pokeService: ApiService) {}
 
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit(): void {
-    this.pokeService.getPokemons().subscribe((data) => {
+    this.pokeService.getPokemons().subscribe(data => {
       this.pokemonList = data;
 
       for (let i = 0; i < data.results.length; i++) {
-        this.pokeService
-          .getAllPokemons(data.results[i].url)
-          .subscribe((data) => {
-            this.pokemons.push(data as Pokemon);
-            this.pokemons.sort((a, b) => a.id - b.id);
-          });
+        this.pokeService.getAllPokemons(data.results[i].url).subscribe(data => {
+          this.pokemons.push(data as Pokemon);
+          this.pokemons.sort((a, b) => a.id - b.id);
+        });
       }
     });
   }
